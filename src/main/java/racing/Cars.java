@@ -3,7 +3,6 @@ package racing;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -12,6 +11,12 @@ public class Cars {
     public Cars(List<String> carEntry) {
         for (int i = 0; i < carEntry.size(); i++) {
             cars.add(new Car(carEntry.get(i)));
+        }
+    }
+
+    public void getCarMove(RandomMove randomMove) {
+        for (int i = 0; i < this.cars.size(); i++) {
+            this.cars.get(i).move(randomMove.movable());
         }
     }
 
@@ -25,10 +30,4 @@ public class Cars {
                 .filter(p -> p.getPosition() == this.cars.get(0).getPosition())
                 .collect(Collectors.toList());
     }
-
-    public void racingCars(int i, int number) {
-        cars.get(i).move(number);
-    }
-
-
 }

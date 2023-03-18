@@ -17,8 +17,8 @@ public class Position implements Comparable<Position> {
     }
 
     @Override
-    public int compareTo(Position position) {
-        return this.position - position.position;
+    public int compareTo(final Position position) {
+        return Integer.compare(this.position, position.position);
     }
 
     public int getPosition() {

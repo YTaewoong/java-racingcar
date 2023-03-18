@@ -1,20 +1,13 @@
 package racing;
 
-import java.util.Random;
-
 public class CarRace {
     Winners getWinners(Cars cars) {
         return new Winners(cars.getFastCars());
     }
 
-    public void racing(Cars cars) {
-        for (int i = 0; i < cars.getCars().size(); i++) {
-            cars.racingCars(i, getRandomNumber());
-        }
-    }
+    RandomMove randomMove = new RandomMove();
 
-    private int getRandomNumber() {
-        Random random = new Random();
-        return random.nextInt(9);
+    public void racing(Cars cars) {
+        cars.getCarMove(randomMove);
     }
 }
